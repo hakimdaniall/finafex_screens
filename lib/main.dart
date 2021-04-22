@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:last_design/screens/buy_gold.dart';
 import 'package:last_design/screens/profile/profile_screen.dart';
 import 'package:last_design/screens/request_money.dart';
 import 'package:last_design/screens/transaction_history.dart';
@@ -208,8 +209,8 @@ class _DashBoardPageState extends State<DashBoardPage> {
                             children: [
                               TableRow(children: [
                                 _actionList(
-                                    'assets/images/ic_send.png',
-                                    'Send Money',
+                                    'assets/images/send_money.png',
+                                    'Send Gold',
                                      (){
                                        Navigator.push(
                                          context,
@@ -223,7 +224,7 @@ class _DashBoardPageState extends State<DashBoardPage> {
                                 ),
                                 _actionList(
                                     'assets/images/ic_money.png',
-                                    'Request',
+                                    'Request Gold',
                                       (){
                                         Navigator.push(
                                           context,
@@ -238,14 +239,14 @@ class _DashBoardPageState extends State<DashBoardPage> {
                               ]),
                               TableRow(children: [
                                 _actionList(
-                                    'assets/images/ic_transact.png',
-                                    'Transactions',
+                                    'assets/images/buy_money.png',
+                                    'Buy Gold',
                                       (){
                                         Navigator.push(
                                           context,
                                           MaterialPageRoute(
                                             builder: (context) {
-                                              return TransactionHistory();
+                                              return BuyGold();
                                             },
                                           ),
                                         );

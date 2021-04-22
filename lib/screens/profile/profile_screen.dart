@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'profile_pic.dart';
 import 'profile_menu.dart';
+import 'package:last_design/screens/transaction_history.dart';
 
 class ProfileScreen extends StatelessWidget {
   @override
@@ -24,8 +25,17 @@ class ProfileScreen extends StatelessWidget {
             ),
             ProfileMenu(
               text: "Transaction History",
-              icon: "assets/icons/Bell.svg",
-              press: () {},
+              icon: "assets/icons/receipt.svg",
+              press: (){
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                    builder: (context) {
+                      return TransactionHistory();
+                      },
+                    ),
+                );
+                },
             ),
             ProfileMenu(
               text: "Settings",

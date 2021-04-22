@@ -1,18 +1,34 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:last_design/widgets/text_bar.dart';
+import 'package:last_design/main.dart';
 
 class RequestMoney extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        backgroundColor: Color(0xFFFFB711),
         body: Stack(
           children: <Widget>[
             Container(
               height: MediaQuery.of(context).size.height*0.4,
               decoration: BoxDecoration(
-                color: Colors.black,
+                borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(15),
+                  bottomRight: Radius.circular(15),
+                ),
+                  gradient: LinearGradient(
+                      begin: Alignment.centerLeft,
+                      end: Alignment.centerRight,
+                      stops: [0.2, 0.3, 0.5, 0.8],
+                      colors: [
+                        Color.fromRGBO(47, 75, 110, 1),
+                        Color.fromRGBO(43, 71, 105, 1),
+                        Color.fromRGBO(39, 64, 97, 1),
+                        Color.fromRGBO(34, 58, 90, 1),
+                      ],
+                  ),
               ),
             ),
             SafeArea(
@@ -27,7 +43,6 @@ class RequestMoney extends StatelessWidget {
                         ),
                         Container(
                           decoration: BoxDecoration(
-                            color: Color(0xFFFFB711),
                             borderRadius: BorderRadius.circular(13.0),
                           ),
 
@@ -214,13 +229,13 @@ class SelectAmount extends StatelessWidget {
                         height: 42,
                         width: 43,
                         decoration: BoxDecoration(
-                          color: selectedNum ? Colors.black : Colors.white,
+                          color: selectedNum ? Color(0xFF223A5A) : Colors.white,
                           shape: BoxShape.circle,
-                          border: Border.all(color: Colors.black),
+                          border: Border.all(color: Color(0xFF223A5A)),
                         ),
                         child: Icon(
                           Icons.attach_money,
-                          color: selectedNum ? Colors.white : Colors.black,
+                          color: selectedNum ? Colors.white : Color(0xFF223A5A),
                         ),
                       ),
                       SizedBox(width: 10),
