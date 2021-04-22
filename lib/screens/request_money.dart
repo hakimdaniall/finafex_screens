@@ -92,52 +92,79 @@ class RequestMoney extends StatelessWidget {
                                 .title
                                 .copyWith(fontWeight: FontWeight.bold),
                         ),
-                        Container(
-                          margin: EdgeInsets.symmetric(vertical: 20),
-                          padding: EdgeInsets.all(10),
-                          height: 90,
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(13),
-                            boxShadow: [
-                              BoxShadow(
-                                offset: Offset(0, 17),
-                                blurRadius: 23,
-                                spreadRadius: -13,
-                                color: Colors.grey,
-                              ),
-                            ],
-                          ),
-                          child: Row(
-                            children: <Widget> [
-                              Image.asset('assets/images/wallet_logo.png'),
-                              SizedBox(width: 20),
-                              Expanded(
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    children: <Widget>[
-                                      Text(
-                                      "Buy Gold",
-                                      style: Theme.of(context).textTheme.subtitle1,
-                                    ),
-                                    Text("Buy Finafex Pay Gold based on gold rate"),
-                              ],
-                              ),
-                            ),
-                              Padding(padding: EdgeInsets.all(10.0),
-                                child: Icon(Icons.arrow_forward_ios),
-                              ),
-                          ],
+                        PromoSection(
+                          image: 'assets/images/wallet_logo.png',
+                          promoTitle: 'Buy Gold',
+                          promoDesc: 'Buy Malakat Pay Gold based on gold rate',
                         ),
-                      ),
-                    ],
-                ),
+                        PromoSection(
+                          image: 'assets/images/jett_icon.png',
+                          promoTitle: 'Gift Card',
+                          promoDesc: 'Amount is based on gift card amount',
+                        ),
+                      ],
+                    ),
                   ),
-              ),
+                ),
             ),
           ],
         ),
+      ),
+    );
+  }
+}
+
+class PromoSection extends StatelessWidget {
+  final String image, promoTitle, promoDesc;
+  const PromoSection({
+    Key key,
+    this.image,
+    this.promoTitle,
+    this.promoDesc
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: EdgeInsets.symmetric(vertical: 10),
+      padding: EdgeInsets.all(10),
+      height: 90,
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(13),
+        boxShadow: [
+          BoxShadow(
+            offset: Offset(0, 17),
+            blurRadius: 23,
+            spreadRadius: -13,
+            color: Colors.grey,
+          ),
+        ],
+      ),
+      child: Row(
+        children: <Widget> [
+          Image.asset(image),
+          SizedBox(width: 20),
+          Expanded(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Text(
+                  promoTitle,
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 18,
+                  ),
+                ),
+                Text(promoDesc),
+          ],
+          ),
+        ),
+          Padding(padding: EdgeInsets.all(10.0),
+            child: Icon(Icons.arrow_forward_ios),
+          ),
+        ],
       ),
     );
   }

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:last_design/screens/buy_gold.dart';
+import 'package:last_design/screens/profile/profile_screen.dart';
 import 'package:last_design/screens/request_money.dart';
 import 'package:last_design/screens/transaction_history.dart';
 import 'screens/send_money.dart';
@@ -252,14 +252,14 @@ class _DashBoardPageState extends State<DashBoardPage> {
                                       },
                                 ),
                                 _actionList(
-                                    'assets/images/ic_reward.png',
-                                    'Buy',
+                                    'assets/images/ic_user.png',
+                                    'Profile',
                                     (){
                                       Navigator.push(
                                         context,
                                         MaterialPageRoute(
                                           builder: (context) {
-                                            return BuyGold();
+                                            return ProfileScreen();
                                           },
                                         ),
                                       );
