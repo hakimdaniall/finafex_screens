@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:last_design/screens/buy_gold.dart';
+import 'package:last_design/screens/BuyGold/buy_gold.dart';
 import 'package:last_design/screens/profile/profile_screen.dart';
 import 'package:last_design/screens/request_money.dart';
-import 'package:last_design/screens/transaction_history.dart';
 import 'screens/send_money.dart';
 
 
