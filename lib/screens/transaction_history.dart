@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+enum TransactionType { sent, received, pending }
+
 class TransactionHistory extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -48,50 +50,49 @@ class TransactionHistory extends StatelessWidget {
                         width: MediaQuery.of(context).size.height*0.5,
                           ),
                       SizedBox(height: 10),
-                      Text("OTHERS",
-                        style: Theme.of(context)
-                            .textTheme
-                            .title
-                            .copyWith(fontWeight: FontWeight.bold),
+                      Center(
+                        child: Text("RECENT TRANSACTIONS",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold
+                          )
+                        ),
                       ),
-                      Container(
-                        margin: EdgeInsets.symmetric(vertical: 20),
-                        padding: EdgeInsets.all(10),
-                        height: 90,
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(13),
-                          boxShadow: [
-                            BoxShadow(
-                              offset: Offset(0, 17),
-                              blurRadius: 23,
-                              spreadRadius: -13,
-                              color: Colors.grey,
-                            ),
-                          ],
-                        ),
-                        child: Row(
-                          children: <Widget> [
-                            Image.asset('assets/images/wallet_logo.png'),
-                            SizedBox(width: 20),
-                            Expanded(
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: <Widget>[
-                                  Text(
-                                    "Buy Gold",
-                                    style: Theme.of(context).textTheme.subtitle1,
-                                  ),
-                                  Text("Buy Finafex Pay Gold based on gold rate"),
-                                ],
-                              ),
-                            ),
-                            Padding(padding: EdgeInsets.all(10.0),
-                              child: Icon(Icons.arrow_forward_ios),
-                            ),
-                          ],
-                        ),
+                      SizedBox(height: 25),
+                      TransactionDetails(
+                        receiptianImage: "assets/images/sitinurhaliza.png",
+                        receptient:"Siti Nurhaliza",
+                        transactionAmout:400,
+                        transactionDate:"4 June 2020",
+                        transactionType:TransactionType.sent,
+                      ),
+                      TransactionDetails(
+                        receiptianImage: "assets/images/noh.png",
+                        receptient:"Noh Salleh",
+                        transactionAmout:150000,
+                        transactionDate:"25 December 2020",
+                        transactionType:TransactionType.received,
+                      ),
+                      TransactionDetails(
+                        receiptianImage: "assets/images/mark.png",
+                        receptient:"Mark Zuckerberg",
+                        transactionAmout:1,
+                        transactionDate:"21 October 2020",
+                        transactionType:TransactionType.pending,
+                      ),
+                      TransactionDetails(
+                        receiptianImage: "assets/images/ebitlew.png",
+                        receptient:"Ebit Lew",
+                        transactionAmout:21000,
+                        transactionDate:"1 November 2020",
+                        transactionType:TransactionType.sent,
+                      ),
+                      TransactionDetails(
+                        receiptianImage: "assets/images/superman.png",
+                        receptient:"Superman",
+                        transactionAmout:100,
+                        transactionDate:"19 September 2020",
+                        transactionType:TransactionType.pending,
                       ),
                     ],
                   ),
@@ -102,5 +103,131 @@ class TransactionHistory extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+class TransactionDetails extends StatelessWidget {
+
+  final String receiptianImage;
+  final String receptient;
+  final int transactionAmout;
+  final String transactionDate;
+  final TransactionType transactionType;
+
+  const TransactionDetails({
+    this.receiptianImage,
+    this.receptient,
+    this.transactionAmout,
+    this.transactionDate,
+    this.transactionType,
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    String transactionName;
+    IconData transactionIconData;
+    Color color;
+    switch (transactionType) {
+      case TransactionType.sent:
+        transactionName = "Sent";
+        transactionIconData = Icons.arrow_upward;
+        color = Theme.of(context).primaryColor;
+        break;
+      case TransactionType.received:
+        transactionName = "Received";
+        transactionIconData = Icons.arrow_downward;
+        color = Colors.green;
+        break;
+      case TransactionType.pending:
+        transactionName = "Pending";
+        transactionIconData = Icons.arrow_downward;
+        color = Colors.orange;
+        break;}
+        return Container(
+          margin: EdgeInsets.all(9.0),
+          padding: EdgeInsets.all(9.0),
+          decoration: BoxDecoration(
+            color: Colors.white,
+            boxShadow: [
+            BoxShadow(
+            blurRadius: 5.0,
+            color: Colors.grey[350],
+            offset: Offset(0, 3),
+            ),
+            ],
+          ),
+          child: Row(
+            children: <Widget> [
+              Flexible(
+                flex: 1,
+                child: Stack(
+                  children: <Widget>[
+                    ClipRRect(
+                        borderRadius: BorderRadius.circular(50.0),
+                        child: Image.asset(receiptianImage)
+                    ),
+                    Positioned(
+                      bottom: 0,
+                      right: 0,
+                      child: Container(
+                        width: 15.0,
+                        height: 15.0,
+                        decoration: BoxDecoration(
+                          color: color,
+                          shape: BoxShape.circle,
+                        ),
+                        child: FittedBox(
+                          child: Icon(
+                            transactionIconData,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(width: 5),
+              Flexible(
+                flex: 4,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: <Widget>[
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Text(
+                          receptient,
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                        Text(
+                          "\$ $transactionAmout",
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Text(
+                          " $transactionDate",
+                          style: TextStyle(color: Colors.grey[700]),
+                        ),
+                        Text(
+                          "$transactionName",
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: color,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        );
   }
 }

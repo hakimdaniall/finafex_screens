@@ -8,7 +8,7 @@ class ProfileScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.black,
+        backgroundColor: Color(0xFF223A5A),
         title: Text('Profile'),
       ),
       body: SingleChildScrollView(
@@ -34,7 +34,7 @@ class ProfileScreen extends StatelessWidget {
                       return TransactionHistory();
                       },
                     ),
-                );
+                  );
                 },
             ),
             ProfileMenu(
