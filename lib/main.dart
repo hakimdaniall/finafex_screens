@@ -159,7 +159,7 @@ class _DashBoardPageState extends State<DashBoardPage> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
                           Container(
-                            height: 90,
+                            height: 100,
                             child: Center(
                               child: ListView(
                                 children: <Widget>[

@@ -141,7 +141,7 @@ class TransactionDetails extends StatelessWidget {
         break;
       case TransactionType.pending:
         transactionName = "Pending";
-        transactionIconData = Icons.arrow_downward;
+        transactionIconData = Icons.access_time;
         color = Colors.orange;
         break;}
         return Container(
