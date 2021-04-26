@@ -148,6 +148,7 @@ class TransactionDetails extends StatelessWidget {
           margin: EdgeInsets.all(9.0),
           padding: EdgeInsets.all(9.0),
           decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(5),
             color: Colors.white,
             boxShadow: [
             BoxShadow(

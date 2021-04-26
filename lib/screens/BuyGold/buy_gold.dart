@@ -12,7 +12,7 @@ class _BuyGoldState extends State<BuyGold> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.black,
+        backgroundColor: Color(0xFF223A5A),
         title: Text("Buy Gold"),
         centerTitle: true,
       ),
