@@ -81,13 +81,18 @@ class SendMoney extends StatelessWidget {
                     ),
                     PromoSection(
                       image: 'assets/images/superman.png',
-                      promoTitle: 'Buy Gold',
-                      promoDesc: 'Buy Malakat Pay Gold based on gold rate',
+                      promoTitle: 'Buy Superman Gold',
+                      promoDesc: 'Buy Malakat Pay Superman Gold version based on gold rate',
                     ),
                     PromoSection(
                       image: 'assets/images/sitinurhaliza.png',
-                      promoTitle: 'Buy Gold',
-                      promoDesc: 'Buy Malakat Pay Gold based on gold rate',
+                      promoTitle: 'Buy Gift Card',
+                      promoDesc: 'Buy Malakat Pay Gift Card based on gold rate',
+                    ),
+                    PromoSection(
+                      image: 'assets/images/jett_icon.png',
+                      promoTitle: 'Buy Valorant Points',
+                      promoDesc: 'Buy Valorant Points via Finafex Pay',
                     ),
                   ],
                 ),

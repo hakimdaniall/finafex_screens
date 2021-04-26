@@ -7,12 +7,17 @@ class TransactionHistory extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        appBar: AppBar(
+          title: Text('Transaction History'),
+          backgroundColor: Color(0xFF223A5A),
+          centerTitle: true,
+        ),
         body: Stack(
           children: <Widget>[
             Container(
               height: MediaQuery.of(context).size.height*0.4,
               decoration: BoxDecoration(
-                color: Colors.black,
+                color: Color(0xFF223A5A),
               ),
             ),
             SafeArea(
@@ -40,7 +45,7 @@ class TransactionHistory extends StatelessWidget {
                       SizedBox(height: 10,),
                       ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                          primary: Colors.black, // background
+                          primary: Colors.transparent, // background
                           onPrimary: Colors.yellow, // foreground
                         ),
                         onPressed: () { },
