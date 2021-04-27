@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:last_design/screens/profile/edit_profile.dart';
+import 'package:last_design/screens/profile/settings_page.dart';
 import 'profile_pic.dart';
 import 'profile_menu.dart';
 import 'package:last_design/screens/transaction_history.dart';
@@ -51,7 +52,16 @@ class ProfileScreen extends StatelessWidget {
             ProfileMenu(
               text: "Settings",
               icon: "assets/icons/Settings.svg",
-              press: () {},
+              press: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return SettingsPage();
+                    },
+                  ),
+                );
+              },
             ),
             ProfileMenu(
               text: "Help Center",
