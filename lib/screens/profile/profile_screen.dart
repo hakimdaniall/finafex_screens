@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:last_design/screens/profile/edit_profile.dart';
 import 'profile_pic.dart';
 import 'profile_menu.dart';
 import 'package:last_design/screens/transaction_history.dart';
@@ -22,21 +23,30 @@ class ProfileScreen extends StatelessWidget {
             ProfileMenu(
               text: "My Account",
               icon: "assets/icons/User Icon.svg",
-              press: () => {},
+              press: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return EditProfile();
+                    },
+                  ),
+                );
+              },
             ),
             ProfileMenu(
               text: "Transaction History",
               icon: "assets/icons/receipt.svg",
-              press: (){
+              press: () {
                 Navigator.push(
-                    context,
-                    MaterialPageRoute(
+                  context,
+                  MaterialPageRoute(
                     builder: (context) {
                       return TransactionHistory();
-                      },
-                    ),
-                  );
-                },
+                    },
+                  ),
+                );
+              },
             ),
             ProfileMenu(
               text: "Settings",
